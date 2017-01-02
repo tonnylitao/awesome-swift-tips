@@ -1,2 +1,40 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<playground version='6.0' target-platform='ios' display-mode='raw' last-migration='0800'/>
+<playground version='6.0' target-platform='ios' display-mode='raw' last-migration='0800'>
+    <pages>
+        <page name='@autoclosure'/>
+        <page name='#selector'/>
+        <page name='app_color'/>
+        <page name='app_storyboard'/>
+        <page name='associated_object'/>
+        <page name='circle_retain_closure_property'/>
+        <page name='clip array'/>
+        <page name='currying'/>
+        <page name='enum_compare'/>
+        <page name='extension'/>
+        <page name='for_where'/>
+        <page name='GCD'/>
+        <page name='literal_expressible'/>
+        <page name='method chaining'/>
+        <page name='notifcation'/>
+        <page name='optional_pattern'/>
+        <page name='private_set'/>
+        <page name='protocol_optional'/>
+        <page name='protocol&amp;'/>
+        <page name='random'/>
+        <page name='set_hash_equal'/>
+        <page name='struct_euqal'/>
+        <page name='subscript_array'/>
+        <page name='synchronized'/>
+        <page name='extension_protocol'/>
+        <page name='PersistentContainer_iOS10'/>
+        <page name='Untitled Page'/>
+        <page name='dao1_object'/>
+        <page name='dao2_protocol'/>
+        <page name='dao0_config'/>
+        <page name='dao3_protocol'/>
+        <page name='dao4_protocol'/>
+        <page name='Untitled Page 2'/>
+        <page name='protocol_generic'/>
+        <page name='protocol_networking'/>
+    </pages>
+</playground>

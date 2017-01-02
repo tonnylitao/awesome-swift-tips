@@ -18,24 +18,3 @@ for value in arr where value < minValue {
     
     minValue = value
 }
-
-var number = [1, 2]
-
-func threeTimes(number: Int) -> Int {
-    let result = 3 * number
-    return result
-}
-
-number.map(threeTimes)
-
-number.map({
-    // Parameter and Return
-    (number: Int) -> Int
-    
-    //keyword in
-    in
-    
-    // Body
-    return 3*number
-})
-

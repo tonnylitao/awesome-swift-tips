@@ -1,7 +1,20 @@
 //: [Previous](@previous)
 
 import Foundation
+import CoreData
+import PlaygroundSupport
 
-var str = "Hello, playground"
+protocol Dao {}
 
-//: [Next](@next)
+extension NSManagedObject: Dao {}
+
+extension Dao where Self: NSManagedObject {
+    //Generic <Self>
+}
+
+
+
+
+
+PlaygroundPage.current.needsIndefiniteExecution = true
+
