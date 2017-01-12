@@ -8,5 +8,5 @@ let btn = UIButton() {
     $0.backgroundColor = .red
 }
 ```
-[Read more!](TheDaoOfProtocol/README.md)
+[Read more](TheDaoOfProtocol/README.md)
 

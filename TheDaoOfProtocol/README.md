@@ -1,19 +1,41 @@
 # The Dao Of Protocol
-In Chinese culture, Dao describes a fairyland where nothing is everything, everything is nothing. It's empty but rich, still but transformable.  
-How about using **Dao** in Swift programming?
 
-###With Dao in mind
+
+>In Chinese culture, Dao describes a fairyland where nothing is everything, everything is nothing. It's empty but rich, still but transformable.  
+>Protocol-Oriented came out at WWDC2015, it looks like interface in java, but more powerful and flexible. How to use the **Dao** of protocol in Swift programming?
+
+---
+* [Isolate builder code](#Isolate builder code)
+* [Keyboard observer](#Keyboard observer)
+* [Default implementation](#Default implementation)
+* [Extend for specific generic](#Extend for specific generic)
+
+##Isolate builder code
+It's difficult to read these crowded builder code. Let's clean them.
+```
+let btn = UIButton()
+btn.frame = 
+btn.backgroundColor = 
+...more builder code
+
+let txtView = UITextView()
+txtView.text =
+txtView.layer..
+...more builder code
+
+...other builders
+```
+####1. with Dao in mind
 
 ```swift
 protocol Dao {}
 ```
-###Extend God
+####2. extend god
 
 ```swift
 extension NSObject: Dao {}
 ```
-###Extend `Subworld`
-* Initializer with closure
+####3. extend `subworld`
 
 ```swift
 extension Dao where Self : NSObject {
@@ -30,25 +52,146 @@ extension Dao where Self : NSObject {
 }
 ```
 
-###How to use it?
+####4. it seems more tidy now
 
 ```swift
 let btn = UIButton() {
     $0.frame = CGRect(x: 10, y: 10, width: 44, height: 44)
     $0.backgroundColor = .red
+    $0 ...
 }
-print(btn)
 
-//or 
 let simplifyBtn = UIButton {
     $0.frame = CGRect(x: 10, y: 10, width: 44, height: 44)
     $0.backgroundColor = .red
+    $0 ...
 }
-print(simplifyBtn)
- 
+
 let dic = NSMutableDictionary {
     $0["key"] = 10
+    $0 ...
 }
 ```
 
+####5. ridiculous clown?
+```swift
+var creazyBtn = UIButton({
+    //setup property
+    $0.frame = CGRect(x: 10, y: 10, width: 44, height: 44)
+    $0.backgroundColor = .red
+    $0.clipsToBounds = true
+    $0.alpha = 0.5
+    $0.tintColor = .blue
+}, {
+    //setup layer
+    $0.layer.borderColor = UIColor.yellow.cgColor
+    $0.layer.borderWidth = 1
+    $0.layer.cornerRadius = $0.bounds.width*0.5
+}, {
+    //setup action
+    $0.addTarget(UIViewController(), action: #selector(MyViewController.login(btn:)), for: .touchUpInside)
+})
+```
+
+##Keyboard observer
+We had written too much repeated willshow or willhide observers in controller. `Protocol Extension` support a good solution to solve this problem.
+
+####1. add protocol for class
+```
+protocol KeyboardShowAndHideProtocol: class {
+    func addKeyboardObservers(_ block:((height: CGFloat, duration: Double) -> Void)?)
+    
+    func removeKeyboardObservers()
+    
+    ..
+}
+```
+####2. extend view controller
+move all repeat code into protocol extension
+```
+extension KeyboardShowAndHideProtocol where Self: UIViewController {
+	
+	func addKeyboardObservers(_ block: HeightDurationBlock? = nil) {
+        let center = NotificationCenter.default
+        
+        keyboardShowObserver = center.addObserver(  ...
+        
+        keyboardHideObserver = center.addObserver(  ...
+    }
+}
+```
+
+####3. much better now
+The most benifit is code reuse in every controller
+```
+final class ViewController: UIViewController {
+    
+    @IBOutlet weak var scrollViewBottomConstraint: NSLayoutConstraint!
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        addKeyboardObservers()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        removeKeyboardObservers()
+    }
+}
+
+extension ViewController: KeyboardShowAndHideProtocol {
+    ...
+}
+```
+##Default implementation
+
+```
+protocol Callable { }
+
+extension Callable {
+    //default implementation
+    func call() {
+        print("calling", phone)
+    }
+}
+
+struct Professor: Callable {
+    //'overwrite' call()
+    func call() {
+        print("calling professor", phone)
+    }
+}
+
+struct Student: Callable {
+    //use the default call()
+}
+```
+
+##Extend for specific generic
+How to add extra methods for Int phone?
+```
+protocol Callable {
+    associatedtype PhoneNumberType
+    var phone: PhoneNumberType { get set }
+}
+
+struct Professor: Callable {
+    var phone: String
+}
+
+struct Student: Callable {
+    var phone: Int
+}
+```
+#### It's easy, just extend protocol for generic
+```
+extension Callable where Self.PhoneNumberType : SignedInteger {
+    
+    func call() {
+        print("this is a number", phone)
+    }
+}
+```
 
