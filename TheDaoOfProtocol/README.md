@@ -147,6 +147,7 @@ extension ViewController: KeyboardShowAndHideProtocol {
 ```
 ##Default implementation
 
+####1. demo1, default implementation for member method
 ```swift
 protocol Callable { }
 
@@ -168,6 +169,33 @@ struct Student: Callable {
     //use the default call()
 }
 ```
+####2. demo2, default implementation for static method
+```swift
+protocol RemoteFetchable {}
+
+extension RemoteFetchable {
+    static func request(_ resource: RemoteResouce, success:(Data)->(Void), failure: (Error)->(Void)) {
+        //api client send request
+    }
+}
+
+struct User {
+    var name: String
+}
+```
+
+```swift
+extension User: RemoteFetchable { }
+
+User.request(
+    RemoteResouce("api.example.com", "/users", .get, ["gender":"female"]),
+    success: { data in
+        
+    },
+    failure: { err in
+        
+    })
+```
 
 ##Extend for specific generic
 How to add extra methods for Int phone?
@@ -185,7 +213,7 @@ struct Student: Callable {
     var phone: Int
 }
 ```
-#### It's easy, just extend protocol for generic
+#### just extend protocol for generic
 ```swift
 extension Callable where Self.PhoneNumberType : SignedInteger {
     

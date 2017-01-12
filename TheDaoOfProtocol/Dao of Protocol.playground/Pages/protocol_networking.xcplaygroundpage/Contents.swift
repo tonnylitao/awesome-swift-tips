@@ -9,7 +9,7 @@ enum Method : String {
     case delete
 }
 
-struct RemoteResouce {
+struct RemoteResource {
     var host: String
     var path: String
     var method: Method
@@ -34,33 +34,33 @@ enum ResponseStatusCode : Int {
 
 struct Response {
     var code: ResponseStatusCode
-    var message: String?
-    
     var data: NSData?
 }
 
-let status = Response(code:.success, message:"Hell", data:nil)
+let status = Response(code:.success, data:nil)
 
 //////////////////////////////////////////////////////////////////////
 
-protocol ApiManager {}
+protocol RemoteFetchable {}
 
-extension ApiManager {
-    static func request(_ resource: RemoteResouce, success:(Void)->(Void), failure: (Void)->(Void)) {
-        
+extension RemoteFetchable {
+    static func request(_ resource: RemoteResource, success:(Data)->(Void), failure: (Error)->(Void)) {
+        //api client send request
     }
 }
 
-struct User: ApiManager {
-    
+struct User {
+    var name: String
 }
 
+extension User: RemoteFetchable { }
+
 User.request(
-    RemoteResouce("", "", .get, nil),
-    success: {
+    RemoteResource("api.example.com", "/user/1", .get, nil),
+    success: { data in
         
     },
-    failure: {
+    failure: { err in
         
     })
 
