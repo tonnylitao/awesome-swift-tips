@@ -4,12 +4,14 @@
 >In Chinese culture, Dao describes a fairyland where nothing is everything, everything is nothing. It's empty but rich, still but transformable.  
 >Protocol-Oriented came out at WWDC2015, it looks like interface in java, but more powerful and flexible. How to use the **Dao** of protocol in Swift programming?
 
----
+
 * [Isolate builder code](#isolate-builder-code)
 * [Keyboard observer](#keyboard-observer)
-* [Default implementation](#default-implementation)
+* [Default implementation (member method)](#default-implementation-for-member-method)
+* [Default implementation (static method)](#default-implementation-for-static-method)
 * [Extend for specific generic](#extend-for-specific-generic)
 
+---
 ##Isolate builder code
 It's difficult to read these crowded builder code. Let's write more clean code.
 ```swift
@@ -92,7 +94,7 @@ var creazyBtn = UIButton({
     $0.addTarget(UIViewController(), action: #selector(MyViewController.login(btn:)), for: .touchUpInside)
 })
 ```
-
+---
 ##Keyboard observer
 We had written too much repeated willshow or willhide observers in controller. `Protocol Extension` support a good solution to solve this problem.
 
@@ -145,9 +147,8 @@ extension ViewController: KeyboardShowAndHideProtocol {
     ...
 }
 ```
-##Default implementation
-
-####1. demo1, default implementation for member method
+---
+##Default implementation for member method
 ```swift
 protocol Callable { }
 
@@ -169,7 +170,9 @@ struct Student: Callable {
     //use the default call()
 }
 ```
-####2. demo2, default implementation for static method
+---
+##Default implementation for static method
+Active Record design pattern from ruby is not bad in api case.
 ```swift
 protocol RemoteFetchable {}
 
@@ -196,7 +199,7 @@ User.request(
         
     })
 ```
-
+---
 ##Extend for specific generic
 How to add extra methods for Int phone?
 ```swift
