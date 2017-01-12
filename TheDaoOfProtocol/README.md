@@ -5,7 +5,7 @@
 >Protocol-Oriented came out at WWDC2015, it looks like interface in java, but more powerful and flexible. How to use the **Dao** of protocol in Swift programming?
 
 ---
-* [Isolate builder code](#isolate-builder code)
+* [Isolate builder code](#isolate-builder-code)
 * [Keyboard observer](#keyboard-observer)
 * [Default implementation](#default-implementation)
 * [Extend for specific generic](#extend-for-specific-generic)
