@@ -5,22 +5,22 @@
 >Protocol-Oriented came out at WWDC2015, it looks like interface in java, but more powerful and flexible. How to use the **Dao** of protocol in Swift programming?
 
 ---
-* [Isolate builder code](#Isolate builder code)
-* [Keyboard observer](#Keyboard observer)
-* [Default implementation](#Default implementation)
-* [Extend for specific generic](#Extend for specific generic)
+* [Isolate builder code](##Isolate builder code)
+* [Keyboard observer](##Keyboard observer)
+* [Default implementation](##Default implementation)
+* [Extend for specific generic](##Extend for specific generic)
 
 ##Isolate builder code
 It's difficult to read these crowded builder code. Let's clean them.
-```
+```swift
 let btn = UIButton()
 btn.frame = 
 btn.backgroundColor = 
-...more builder code
+//...more builder code
 
 let txtView = UITextView()
 txtView.text =
-txtView.layer..
+txtView.layer =
 ...more builder code
 
 ...other builders
@@ -97,7 +97,7 @@ var creazyBtn = UIButton({
 We had written too much repeated willshow or willhide observers in controller. `Protocol Extension` support a good solution to solve this problem.
 
 ####1. add protocol for class
-```
+```swift
 protocol KeyboardShowAndHideProtocol: class {
     func addKeyboardObservers(_ block:((height: CGFloat, duration: Double) -> Void)?)
     
@@ -108,7 +108,7 @@ protocol KeyboardShowAndHideProtocol: class {
 ```
 ####2. extend view controller
 move all repeat code into protocol extension
-```
+```swift
 extension KeyboardShowAndHideProtocol where Self: UIViewController {
 	
 	func addKeyboardObservers(_ block: HeightDurationBlock? = nil) {
@@ -123,7 +123,7 @@ extension KeyboardShowAndHideProtocol where Self: UIViewController {
 
 ####3. much better now
 The most benifit is code reuse in every controller
-```
+```swift
 final class ViewController: UIViewController {
     
     @IBOutlet weak var scrollViewBottomConstraint: NSLayoutConstraint!
@@ -147,7 +147,7 @@ extension ViewController: KeyboardShowAndHideProtocol {
 ```
 ##Default implementation
 
-```
+```swift
 protocol Callable { }
 
 extension Callable {
@@ -171,7 +171,7 @@ struct Student: Callable {
 
 ##Extend for specific generic
 How to add extra methods for Int phone?
-```
+```swift
 protocol Callable {
     associatedtype PhoneNumberType
     var phone: PhoneNumberType { get set }
@@ -186,7 +186,7 @@ struct Student: Callable {
 }
 ```
 #### It's easy, just extend protocol for generic
-```
+```swift
 extension Callable where Self.PhoneNumberType : SignedInteger {
     
     func call() {
