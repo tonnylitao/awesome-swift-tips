@@ -1,7 +1,8 @@
 # HowSwift
 Some tips about effective and elegant swift coding.
-[Funny Swift](#funny-swiftplayground)
-[The Dao of Protocol](#the-dao-of-protocolplayground)
+
+[Funny Swift](#1-funny-swiftplayground)
+[The Dao of Protocol](#2-the-dao-of-protocolplayground)
 
 ##1. Funny Swift.playground
 Some tips about how to write funny swift.
