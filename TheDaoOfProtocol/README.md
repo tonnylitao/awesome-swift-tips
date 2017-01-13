@@ -190,8 +190,7 @@ struct User {
 ```swift
 extension User: RemoteFetchable { }
 
-User.request(
-    RemoteResouce("api.example.com", "/users", .get, ["gender":"female"]),
+User.request(RemoteResouce("api.example.com", "/users", .get, ["gender": "female"]),
     success: { data in
         
     },
@@ -225,4 +224,6 @@ extension Callable where Self.PhoneNumberType : SignedInteger {
     }
 }
 ```
+
+[Download](https://github.com/TonnyTao/HowSwift/archive/master.zip) playground to play
 

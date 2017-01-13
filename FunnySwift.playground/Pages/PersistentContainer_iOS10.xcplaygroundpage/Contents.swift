@@ -3,7 +3,7 @@
 import Foundation
 import CoreData
 
-//: iOS10 CoreData
+//: easy CoreData in iOS10
 
 final class CoreDataStack {
     

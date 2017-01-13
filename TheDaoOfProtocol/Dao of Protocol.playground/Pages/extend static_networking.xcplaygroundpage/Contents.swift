@@ -16,7 +16,7 @@ struct RemoteResource {
 //    var headers: [String : String]?
     var parameter: [String : Any]?
 
-    init(_ host: String = "api.example.com", _ path: String, _ method: Method, _ parameter: [String: Any]?) {
+    init(_ host: String = "api.example.com", _ path: String, _ method: Method, _ parameter: [String: Any]? = nil) {
         self.host = host
         self.path = path
         self.method = method
@@ -56,7 +56,7 @@ struct User {
 extension User: RemoteFetchable { }
 
 User.request(
-    RemoteResource("api.example.com", "/user/1", .get, nil),
+    RemoteResource("api.example.com", "/user/1", .get),
     success: { data in
         
     },

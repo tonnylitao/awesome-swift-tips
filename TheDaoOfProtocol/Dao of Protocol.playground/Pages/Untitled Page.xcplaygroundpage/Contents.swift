@@ -4,12 +4,16 @@ import Foundation
 import CoreData
 import PlaygroundSupport
 
-protocol Dao {}
+protocol Entity {}
 
-extension NSManagedObject: Dao {}
+extension NSManagedObject: Entity {}
 
-extension Dao where Self: NSManagedObject {
-    //Generic <Self>
+extension Entity where Self: NSManagedObject {
+    
+}
+
+class User: NSManagedObject {
+    
 }
 
 

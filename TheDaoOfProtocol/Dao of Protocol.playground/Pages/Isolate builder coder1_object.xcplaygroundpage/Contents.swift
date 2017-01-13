@@ -6,7 +6,7 @@ import UIKit
 //: So let's extend all objects, not just only UILabel.
 
 extension NSObject {
-    convenience init(closure: (Self) -> Void) {
+    convenience init(closure: (NSObject) -> Void) {
         self.init()
         closure(self)
     }

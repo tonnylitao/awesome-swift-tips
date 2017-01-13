@@ -23,6 +23,7 @@ var KeyboardShowObserverKey: UInt8 = 0
 var KeyboardHideObserverKey: UInt8 = 1
 
 extension KeyboardShowAndHideProtocol where Self: UIViewController {
+
     
     private var keyboardShowObserver: Any? {
         get {

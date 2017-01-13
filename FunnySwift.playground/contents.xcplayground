@@ -25,15 +25,6 @@
         <page name='struct_euqal'/>
         <page name='subscript_array'/>
         <page name='synchronized'/>
-        <page name='extension_protocol'/>
         <page name='PersistentContainer_iOS10'/>
-        <page name='Untitled Page'/>
-        <page name='dao1_object'/>
-        <page name='dao2_protocol'/>
-        <page name='dao0_config'/>
-        <page name='dao3_protocol'/>
-        <page name='dao4_protocol'/>
-        <page name='fun where for generic'/>
-        <page name='protocol_networking'/>
     </pages>
 </playground>
