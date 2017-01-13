@@ -1,9 +1,9 @@
 # HowSwift
 Some tips about effective and elegant swift coding.
-[Funny Swift](#funnyswift.playground)
-[The Dao of Protocol](#the-dao-of-protocol.playground)
+[Funny Swift](#funny-swiftplayground)
+[The Dao of Protocol](#the-dao-of-protocolplayground)
 
-##1. FunnySwift.playground
+##1. Funny Swift.playground
 Some tips about how to write funny swift.
 
 * Extension for Selector
