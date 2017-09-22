@@ -1,5 +1,5 @@
 # HowSwift
-Some tips about effective and elegant swift coding.
+Some tips about coding swift efficiently and elegantly.
 
 [1. Funny Swift](#1-funny-swiftplayground)	
 [2. The Dao of Protocol](#2-the-dao-of-protocolplayground)
@@ -8,7 +8,6 @@ Some tips about effective and elegant swift coding.
 Some tips about how to write funny swift.
 
 * Extension for Selector
-
 ```swift
 private extension Selector {
     static let btnTapped = #selector(ViewController.btnTapped(btn:))
@@ -18,7 +17,6 @@ btn.addTarget(self, action: .btnTapped, for: .touchUpInside)
 ```
 
 * Extension for Notification.Name
-
 ```swift
 extension Notification.Name {
     static let changed = NSNotification.Name(rawValue: "changed")
