@@ -9,7 +9,7 @@ final class CoreDataStack {
     
     static let shared = CoreDataStack()
     var errorHandler: (Error) -> Void = {err in
-        debugPrint("CoreData error \(err), \(err._userInfo)")
+        debugPrint("CoreData error \(err)")
     }
     
     lazy var container: NSPersistentContainer = {
@@ -46,3 +46,34 @@ extension CoreDataStack {
         self.shared.container.performBackgroundTask(block)
     }
 }
+
+func dashatize(_ number: Int) -> String {
+    
+    return String(number).characters.reduce("") { (result, char) -> String in
+        
+        if char == "-" { //negative
+            return result
+        }
+        
+        let string = String(char)
+        
+        
+        if Int(String(char))! % 2 == 0 { //even
+            
+            return result + string
+        }else { //odd
+            
+            if result.hasSuffix("-") {
+                return result + string + "-"
+            }else {
+                return result + "-" + string + "-"
+            }
+            
+        }
+    }
+    
+}
+
+
+
+

@@ -22,7 +22,7 @@ let sel2 = #selector(Dog.say(text:) as (Dog)->(String) -> Void)
 
 //: Using selector in Swift to access Objective-C property's getter and setter
 class Cat : NSObject {
-    var name: String?
+    @objc var name: String?
 }
 
 let getName = #selector(getter: Cat.name)
@@ -46,7 +46,7 @@ class ViewController: UIViewController {
         btn.addTarget(self, action: .btnTapped, for: .touchUpInside)
     }
     
-    func btnTapped(btn: UIButton) {
+    @objc func btnTapped(btn: UIButton) {
         
     }
 }
