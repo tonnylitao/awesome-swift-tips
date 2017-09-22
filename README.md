@@ -81,7 +81,7 @@ arr[[0, 2]] //print [1, 3]
 
 ---
 ## 2. The Dao of Protocol.playground
-This playground file is about basic Protocol and Protocol Oriented Programming. OOP with it's patterns is addicted to the paradigm in lower-level of inheritance. However, POP, the game changer, open the doors to the top-level programming.
+This playground file is about basic Protocol and Protocol Oriented Programming. OOP with it's patterns is addicted to the paradigm in lower-level of inheritance. However, POP, the game changer, open the doors to the upper-level programming.
 
 Isolate builder code
 ```swift
