@@ -1,6 +1,6 @@
 # HowSwift
 Some tips about coding swift efficiently and elegantly.
-[Download](https://github.com/TonnyTao/HowSwift/archive/master.zip) playgrounds to play
+[Download](https://github.com/TonnyTao/HowSwift/archive/master.zip) playgrounds to have fun.
 
 [1. Funny Swift](#1-funny-swiftplayground)	
 [2. The Dao of Protocol](#2-the-dao-of-protocolplayground)
