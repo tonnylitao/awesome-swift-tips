@@ -79,8 +79,6 @@ var arr = [1, 2, 3]
 arr[[0, 2]] //print [1, 3]
 ```
 
-[Download](https://github.com/TonnyTao/HowSwift/archive/master.zip) playground to play
-
 ---
 ## 2. The Dao of Protocol.playground
 It's about basic Protocol and Protocol Oriented Programming.
