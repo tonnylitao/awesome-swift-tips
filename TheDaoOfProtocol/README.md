@@ -12,7 +12,7 @@
 * [Extend for specific generic](#extend-for-specific-generic)
 
 ---
-##Isolate builder code
+## Isolate builder code
 It's difficult to read these crowded builder code. Let's write more clean code.
 ```swift
 let btn = UIButton()
@@ -27,17 +27,17 @@ txtView.layer =
 
 ...other builders
 ```
-####1. with Dao in mind
+#### 1. with Dao in mind
 
 ```swift
 protocol Dao {}
 ```
-####2. extend god
+#### 2. extend god
 
 ```swift
 extension NSObject: Dao {}
 ```
-####3. extend `subworld`
+#### 3. extend `subworld`
 
 ```swift
 extension Dao where Self : NSObject {
@@ -54,7 +54,7 @@ extension Dao where Self : NSObject {
 }
 ```
 
-####4. it seems more tidy now
+#### 4. it seems more tidy now
 
 ```swift
 let btn = UIButton() {
@@ -75,7 +75,7 @@ let dic = NSMutableDictionary {
 }
 ```
 
-####5. ridiculous clown?
+#### 5. ridiculous clown?
 ```swift
 var creazyBtn = UIButton({
     //setup property
@@ -95,10 +95,10 @@ var creazyBtn = UIButton({
 })
 ```
 ---
-##Keyboard observer
+## Keyboard observer
 We had written too much repeated willshow or willhide observers in controller. `Protocol Extension` support a good solution to solve this problem.
 
-####1. add protocol for class
+#### 1. add protocol for class
 ```swift
 protocol KeyboardShowAndHideProtocol: class {
     func addKeyboardObservers(_ block:((height: CGFloat, duration: Double) -> Void)?)
@@ -108,7 +108,7 @@ protocol KeyboardShowAndHideProtocol: class {
     ..
 }
 ```
-####2. extend view controller
+#### 2. extend view controller
 move all repeat code into protocol extension
 ```swift
 extension KeyboardShowAndHideProtocol where Self: UIViewController {
@@ -123,7 +123,7 @@ extension KeyboardShowAndHideProtocol where Self: UIViewController {
 }
 ```
 
-####3. much better now
+#### 3. much better now
 The most benifit is code reuse in every controller
 ```swift
 final class ViewController: UIViewController {
@@ -148,7 +148,7 @@ extension ViewController: KeyboardShowAndHideProtocol {
 }
 ```
 ---
-##Default implementation for member method
+## Default implementation for member method
 ```swift
 protocol Callable { }
 
@@ -171,7 +171,7 @@ struct Student: Callable {
 }
 ```
 ---
-##Default implementation for static method
+## Default implementation for static method
 Active Record design pattern from ruby is not bad in api case.
 ```swift
 protocol RemoteFetchable {}
@@ -199,7 +199,7 @@ User.request(RemoteResouce("api.example.com", "/users", .get, ["gender": "female
     })
 ```
 ---
-##Extend for specific generic
+## Extend for specific generic
 How to add extra methods for Int phone?
 ```swift
 protocol Callable {
