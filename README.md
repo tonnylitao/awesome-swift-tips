@@ -4,7 +4,7 @@ Some tips about effective and elegant swift coding.
 [1. Funny Swift](#1-funny-swiftplayground)	
 [2. The Dao of Protocol](#2-the-dao-of-protocolplayground)
 
-##1. Funny Swift.playground
+## 1. Funny Swift.playground
 Some tips about how to write funny swift.
 
 * Extension for Selector
@@ -88,7 +88,7 @@ arr[[0, 2]] //print [1, 3]
 [Download](https://github.com/TonnyTao/HowSwift/archive/master.zip) playground to play
 
 ---
-##2. The Dao of Protocol.playground
+## 2. The Dao of Protocol.playground
 It's about basic Protocol and Protocol Oriented Programming.
 
 * Isolate builder code
