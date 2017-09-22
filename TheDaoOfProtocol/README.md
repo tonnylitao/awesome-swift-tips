@@ -27,17 +27,17 @@ txtView.layer =
 
 ...other builders
 ```
-#### 1. with Dao in mind
+#### 1. Actually, Dao is empty. But it's the ZEN OF EVERYTHING.
 
 ```swift
 protocol Dao {}
 ```
-#### 2. extend god
+#### 2. Let's extend our existed world to PUT DAO IN MIND.
 
 ```swift
 extension NSObject: Dao {}
 ```
-#### 3. extend `subworld`
+#### 3. Add constraints to the `subworld` with protocol extension.
 
 ```swift
 extension Dao where Self : NSObject {
@@ -54,7 +54,7 @@ extension Dao where Self : NSObject {
 }
 ```
 
-#### 4. it seems more tidy now
+#### 4. It seems much more tidy now
 
 ```swift
 let btn = UIButton() {
@@ -96,9 +96,9 @@ var creazyBtn = UIButton({
 ```
 ---
 ## Keyboard observer
-We had written too much repeated willshow or willhide observers in controller. `Protocol Extension` support a good solution to solve this problem.
+We had written too much repeated willshow or willhide observers in controller. `Protocol Extension` supports a good solution to solve this problem.
 
-#### 1. add protocol for class
+#### 1. create keyboard protocol, but it's only for class.
 ```swift
 protocol KeyboardShowAndHideProtocol: class {
     func addKeyboardObservers(_ block:((height: CGFloat, duration: Double) -> Void)?)
@@ -113,7 +113,7 @@ move all repeat code into protocol extension
 ```swift
 extension KeyboardShowAndHideProtocol where Self: UIViewController {
 	
-	func addKeyboardObservers(_ block: HeightDurationBlock? = nil) {
+    func addKeyboardObservers(_ block: HeightDurationBlock? = nil) {
         let center = NotificationCenter.default
         
         keyboardShowObserver = center.addObserver(  ...
