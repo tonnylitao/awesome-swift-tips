@@ -13,7 +13,7 @@
 
 ---
 ## Isolate builder code
-It's difficult to read these crowded builder code. Let's write more clean code.
+It's difficult to read these crowded builder code. Let's write clean code with the power of Protocol.
 ```swift
 let btn = UIButton()
 btn.frame = 
