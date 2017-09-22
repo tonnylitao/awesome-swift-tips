@@ -6,7 +6,7 @@ Some tips about coding swift efficiently and elegantly.
 [2. The Dao of Protocol](#2-the-dao-of-protocolplayground)
 
 ## 1. Funny Swift.playground
-Some tips about how to write funny swift which saves your time and fingers.
+This playground file has some funny tips about how to write funny swift which saves your time and fingers.
 
 Extension for Selector:
 ```swift
@@ -81,7 +81,7 @@ arr[[0, 2]] //print [1, 3]
 
 ---
 ## 2. The Dao of Protocol.playground
-It's about basic Protocol and Protocol Oriented Programming.
+This playground file is about basic Protocol and Protocol Oriented Programming. OOP with it's patterns is addicted to the paradigm in lower-level of inheritance. However, POP, the game changer, open the doors to the top-level programming.
 
 Isolate builder code
 ```swift
