@@ -59,8 +59,9 @@ let typedBtn = UIButton(type: .contactAdd) {
 
 let b = UIButton({
     $0.backgroundColor = .red
-}, {
+},{
     $0.setTitle("Hello", for: .normal)
 })
+
 
 

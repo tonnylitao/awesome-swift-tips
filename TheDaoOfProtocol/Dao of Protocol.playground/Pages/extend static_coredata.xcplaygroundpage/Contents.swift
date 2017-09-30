@@ -48,7 +48,7 @@ protocol DateAble {
 
 extension Boy: DateAble {
     func dateWithLover() {
-        print("💑")
+        print("💑", terminator: "")
     }
 }
 
@@ -86,7 +86,7 @@ class Topic : NSManagedObject {}
 
 protocol ApiFetch {}
 protocol CoreDataFetch {}
-typealias FetchAble = CoreDataFetch & ApiFetch
+typealias FetchAble = CoreDataFetch&ApiFetch
 
 extension NSManagedObject : FetchAble {} //it's important
 
@@ -96,7 +96,7 @@ extension CoreDataFetch where Self: NSManagedObject { // ‘where Self: NSManage
         // find in coredata
         
         DispatchQueue.main.async {
-            completion(Self())
+//            completion(obj)
         }
     }
 }
@@ -129,7 +129,7 @@ extension ApiFetch where Self: User {
         // find in coredata
         
         DispatchQueue.main.async {
-            completion(Self())
+//            completion(user)
         }
     }
 }

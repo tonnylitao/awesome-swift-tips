@@ -14,7 +14,6 @@ protocol Dao {}
 
 extension NSObject: Dao {}
 
-
 extension Dao where Self : NSObject {
     
     typealias ConfigClosure = (Self) -> Void
@@ -48,8 +47,8 @@ class MyViewController : UIViewController {
         $0.addTarget(UIViewController(), action: #selector(MyViewController.login(btn:)), for: .touchUpInside)
     })
 
-    func login(btn: UIButton) {
-        print("login")
+    @objc func login(btn: UIButton) {
+        print("login", terminator: "")
     }
     
 }

@@ -20,7 +20,7 @@ struct Professor: Callable {
     
     //'overwrite' implementation
     func call() {
-        print("calling professor", phone)
+        print("calling string phone:", phone, terminator: "\n")
     }
 }
 
@@ -32,10 +32,7 @@ struct Student: Callable {
 
 ////////////////////////////
 
-let steve = Professor(phone: "1234567890")
-let tim = Student(phone: 9876543210)
-
-extension Callable where Self.PhoneNumberType : SignedInteger {
+extension Callable where Self.PhoneNumberType == Int {
     
     func call() {
         
@@ -43,11 +40,14 @@ extension Callable where Self.PhoneNumberType : SignedInteger {
         phone.insert("-", at: phone.index(phone.startIndex, offsetBy: String.IndexDistance(3)))
         phone.insert("-", at: phone.index(phone.startIndex, offsetBy: String.IndexDistance(7)))
         
-        print(phone)
+        print("calling int phone:", phone, terminator: "\n")
     }
     
 }
 
+let steve = Professor(phone: "1234567890")
 steve.call()
+
+let tim = Student(phone: 9876543210)
 tim.call()
 

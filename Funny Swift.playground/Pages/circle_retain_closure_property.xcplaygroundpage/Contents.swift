@@ -10,7 +10,7 @@ class Person {
     lazy var say: () -> String = {
         [unowned self] in
         
-        print(self.name)
+        print(self.name as Any)
         
         return ""
     }

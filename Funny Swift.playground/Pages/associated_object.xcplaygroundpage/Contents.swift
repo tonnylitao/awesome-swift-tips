@@ -20,4 +20,4 @@ let a = MyClass()
 
 a.title = "Swifter.tips"
 
-print(a.title)
+print(a.title as Any)
