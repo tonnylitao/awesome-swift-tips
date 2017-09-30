@@ -1,11 +1,12 @@
 # HowSwift
 Some tips about coding swift efficiently and elegantly.
+[Download](https://github.com/TonnyTao/HowSwift/archive/master.zip) playgrounds to have fun.
 
 [1. Funny Swift](#1-funny-swiftplayground)	
 [2. The Dao of Protocol](#2-the-dao-of-protocolplayground)
 
 ## 1. Funny Swift.playground
-Some tips about how to write funny swift which saves your time and fingers.
+This playground file has some funny tips about how to write funny swift which saves your time and fingers.
 
 Extension for Selector:
 ```swift
@@ -78,11 +79,9 @@ var arr = [1, 2, 3]
 arr[[0, 2]] //print [1, 3]
 ```
 
-[Download](https://github.com/TonnyTao/HowSwift/archive/master.zip) playground to play
-
 ---
 ## 2. The Dao of Protocol.playground
-It's about basic Protocol and Protocol Oriented Programming.
+This playground file is about basic Protocol and Protocol Oriented Programming. OOP with it's patterns is addicted to the paradigm in lower-level of inheritance. However, POP, the game changer, open the doors to the upper-level programming.
 
 Isolate builder code
 ```swift
