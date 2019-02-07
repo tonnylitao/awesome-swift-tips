@@ -17,7 +17,7 @@ class Dog {
 }
 
 let sel1 = #selector(Dog.say as (Dog) -> () -> Void)
-let sel2 = #selector(Dog.say(text:) as (Dog)->(String) -> Void)
+let sel2 = #selector(Dog.say(text:) as (Dog) -> (String) -> Void)
 
 
 //: Using selector in Swift to access Objective-C property's getter and setter

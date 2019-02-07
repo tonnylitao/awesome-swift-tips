@@ -9,7 +9,7 @@ func logIfTrue(_ predicate: @autoclosure () -> Bool) {
         print("True")
     }
 }
-logIfTrue(2>1) //It's not logIfTrue(true)
+logIfTrue(2>1) //It's not same as logIfTrue(true)
 
 
 //: With @autoclosure, the right-hand side of the operation unnecessary to be caculated when calling && function.

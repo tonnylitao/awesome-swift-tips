@@ -26,5 +26,6 @@
         <page name='subscript_array'/>
         <page name='synchronized'/>
         <page name='PersistentContainer_iOS10'/>
+        <page name='elimnate if'/>
     </pages>
 </playground>

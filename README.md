@@ -8,7 +8,8 @@ Some tips about coding swift efficiently and elegantly.
 ## 1. Funny Swift.playground
 This playground file has some funny tips about how to write funny swift which saves your time and fingers.
 
-Extension for Selector:
+### Extension for Selector:
+
 ```swift
 private extension Selector {
     static let btnTapped = #selector(ViewController.btnTapped(btn:))
@@ -18,7 +19,8 @@ btn.addTarget(self, action: .btnTapped, for: .touchUpInside)
 ```
 
 
-Extension for Notification.Name
+### Extension for Notification.Name
+
 ```swift
 extension Notification.Name {
     static let changed = NSNotification.Name(rawValue: "changed")
@@ -27,19 +29,23 @@ extension Notification.Name {
 NotificationCenter.default.post(name: .changed, object: nil)
 ```
 
-Extension for random of collection
+### Eliminate nil check with flatMap
+
 ```swift
-extension RandomAccessCollection {
-    func random() -> Iterator.Element? {
-        ...
-    }
+if city != nil {
+	para["city"] = city	
 }
 
-(1..<10).random()
-(1...9).random()
-["David", "Chris", "Joe", "Jordan", "Tony"].random()
 ```
-Enum for managing storyboards
+
+vs
+
+```
+city.flatMap { para["city"] = $0 }
+```
+
+### Enum for managing storyboards
+
 ```swift
 user.storyboard
 topic.storyboard
@@ -50,7 +56,8 @@ let userVC = AppStoryboard.user.viewController(UserViewController.self)
 let topicVC = AppStoryboard.topic.viewController("TopicViewController")
 ```
 
-Extension reduce repeat code
+### Extension reduce repeat code
+
 ```swift
 let p = CGPoint(x:10, y:10.1)
 let r = CGRect(x:10, y:10, width:100, height:100)
@@ -60,7 +67,8 @@ let p = CGPoint(10, 10.1)
 let r = CGRect(10, 10, 100, 100)
 ```
 
-Extension to code in chain style
+### Extension to code in chain style
+
 ```swift
 let view = UIView()
     .backgroundColor(.white)
@@ -68,12 +76,14 @@ let view = UIView()
     ...
 ```
 
-Use & to combine protocols
+### Use & to combine protocols
+
 ```swift
 typealias SpeakAble = SpeakStringAble & SpeakCharacterAble
 ```
 
-array subscripts
+### Array subscripts
+
 ```swift
 var arr = [1, 2, 3]
 arr[[0, 2]] //print [1, 3]
@@ -83,7 +93,8 @@ arr[[0, 2]] //print [1, 3]
 ## 2. The Dao of Protocol.playground
 This playground file is about basic Protocol and Protocol Oriented Programming. OOP with it's patterns is addicted to the paradigm in lower-level of inheritance. However, POP, the game changer, open the doors to the upper-level programming.
 
-Isolate builder code
+### Isolate builder code
+
 ```swift
 let btn = UIButton() {
     $0.frame = CGRect(x: 10, y: 10, width: 44, height: 44)
@@ -92,7 +103,8 @@ let btn = UIButton() {
 }
 ```
 
-Keyboard observer
+### Keyboard observer
+
 ```swift
 final class ViewController: UIViewController {
     ...
@@ -111,7 +123,8 @@ final class ViewController: UIViewController {
 }
 ```
 
-Default implementation for Active Record
+### Default implementation for Active Record
+
 ```swift
 extension User: RemoteFetchable { }
 
@@ -124,7 +137,8 @@ User.request(RemoteResouce("api.example.com", "/users", .get),
     })
 ```
 
-Extension for specific generic
+### Extension for specific generic
+
 ```swift
 extension Callable where Self.PhoneNumberType : SignedInteger {
     func call() {

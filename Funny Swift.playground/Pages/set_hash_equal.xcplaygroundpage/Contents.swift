@@ -9,7 +9,7 @@ struct Friend: Hashable, Equatable {
         return self.name.hash ^ self.email.hash
     }
     
-    static func ==(lhs: Friend, rhs: Friend) -> Bool {
+    static func == (lhs: Friend, rhs: Friend) -> Bool {
         return lhs.name == rhs.name && lhs.email == rhs.email
     }
 }
