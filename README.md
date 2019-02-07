@@ -1,4 +1,4 @@
-# HowSwift
+# awesome swift tips
 Some tips about coding swift efficiently and elegantly.
 [Download](https://github.com/TonnyTao/HowSwift/archive/master.zip) playgrounds to have fun.
 
