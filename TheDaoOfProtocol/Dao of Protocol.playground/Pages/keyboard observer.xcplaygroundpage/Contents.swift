@@ -51,8 +51,9 @@ extension KeyboardShowAndHideProtocol where Self: UIViewController {
     func addKeyboardObservers(block: HeightDurationBlock? = nil) {
         let center = NotificationCenter.default
         
+    
         //keyboard show observer
-        keyboardShowObserver = center.addObserver(forName: .UIKeyboardWillShow,
+        keyboardShowObserver = center.addObserver(forName: UIViewController.keyboardWillShowNotification,
                                                   object: nil,
                                                   queue: nil)
         { [weak self] notification in
@@ -75,7 +76,7 @@ extension KeyboardShowAndHideProtocol where Self: UIViewController {
         }
         
         //keyboard hide observer
-        keyboardHideObserver = center.addObserver(forName: .UIKeyboardWillHide,
+        keyboardHideObserver = center.addObserver(forName: UIViewController.keyboardWillHideNotification,
                                                   object: nil,
                                                   queue: nil)
         { [weak self] notification in
@@ -99,8 +100,8 @@ extension KeyboardShowAndHideProtocol where Self: UIViewController {
     
     private func getHeightDurationFrom(notification: Notification) -> HeightDuration? {
         guard let userInfo = notification.userInfo,
-            let rect = userInfo[UIKeyboardFrameEndUserInfoKey] as? CGRect,
-            let duration = userInfo[UIKeyboardAnimationDurationUserInfoKey] as? Double else { return nil }
+            let rect = userInfo[UIViewController.keyboardFrameEndUserInfoKey] as? CGRect,
+            let duration = userInfo[UIViewController.keyboardAnimationDurationUserInfoKey] as? Double else { return nil }
         
         return (rect.height, duration)
     }
