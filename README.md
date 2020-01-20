@@ -1,8 +1,9 @@
 # awesome swift tips
-Some tips about coding swift efficiently and elegantly.
-[Download](https://github.com/TonnyTao/HowSwift/archive/master.zip) playgrounds to have fun.
+Some tips about coding in swift efficiently and elegantly.
+[Download](https://github.com/TonnyTao/HowSwift/archive/master.zip) two playground files to have fun.
 
 [1. Funny Swift](#1-funny-swiftplayground)	
+
 [2. The Dao of Protocol](#2-the-dao-of-protocolplayground)
 
 ## 1. Funny Swift.playground
