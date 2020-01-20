@@ -1,6 +1,6 @@
 # awesome swift tips
 Some tips about coding in swift efficiently and elegantly.
-[Download](https://github.com/TonnyTao/HowSwift/archive/master.zip) two playground files to have fun.
+[Download](https://github.com/TonnyTao/HowSwift/archive/master.zip) the following two playground files to have fun.
 
 [1. Funny Swift](#1-funny-swiftplayground)	
 
