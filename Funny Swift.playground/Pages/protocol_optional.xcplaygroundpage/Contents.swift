@@ -1,5 +1,7 @@
 import Foundation
 
+// optional method in protocol works only with @objc
+
 @objc protocol MyProtocol {
     @objc optional func foo() -> String
 }
@@ -8,4 +10,4 @@ class MyClass: MyProtocol {
     
 }
 
-//struct, enum canot use optional protocol
+//but struct, enum canot use optional protocol

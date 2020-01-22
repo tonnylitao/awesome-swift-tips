@@ -2,25 +2,39 @@
  # @autoclosure
  */
 
-//: @autoclosure attribute convert expression to a closure automatically instead of caculated it immediately.
+func log(_ bool: Bool) {
+    print(bool)
+}
+log(2>1) //same as log(true)
+
+print("--------")
+//: but @autoclosure convert expression to a closure automatically instead of caculated it immediately.
 
 func logIfTrue(_ predicate: @autoclosure () -> Bool) {
-    if predicate() {
-        print("True")
-    }
+    print("1")
+    
+    predicate()
 }
-logIfTrue(2>1) //It's not same as logIfTrue(true)
+logIfTrue(2>1)
 
+print("--------")
 
-//: With @autoclosure, the right-hand side of the operation unnecessary to be caculated when calling && function.
+logIfTrue(
+    {
+        print("2")
+        return 2>1
+    }()
+)
 
-func &&(lhs: Bool, rhs: @autoclosure () -> Bool) -> Bool {
+//: With @autoclosure, the right-hand operation of && is unnecessary to be caculated when calling.
+
+func and(lhs: Bool, rhs: @autoclosure () -> Bool) -> Bool {
     return lhs ? rhs() : false
 }
 
-//: Another example too.
+//: Another example
 
-func ??<T>(optional: T?, defaultValue: @autoclosure () -> T) -> T {
+func defaultWithAutoClosure<T>(optional: T?, defaultValue: @autoclosure () -> T) -> T {
     switch optional {
     case .some(let value):
         return value
@@ -29,4 +43,9 @@ func ??<T>(optional: T?, defaultValue: @autoclosure () -> T) -> T {
     }
 }
 
-//: So, if you want use short-circuit evaluation or reduce calculating consumer, please use @autoclosure.
+var bool: Bool?
+defaultWithAutoClosure(optional: bool, defaultValue: 2>1)
+
+bool ?? (2>1)
+
+//: So, if you want use short-circuit evaluation or reduce calculating, please use @autoclosure.

@@ -29,10 +29,10 @@ let getName = #selector(getter: Cat.name)
 let setName = #selector(setter: Cat.name)
 
 let cat = Cat()
+cat.perform(setName, with: "Kitty")
 
-cat.perform(setName, with: "Kity")
-let name = cat.perform(getName).takeUnretainedValue() as! String
-print(name) //Kity
+let unmanagedObject = cat.perform(getName)
+let name = unmanagedObject?.takeUnretainedValue() as? String //Kitty
 
 
 //: Using extra extension to make your code more native, and save your fingers.
@@ -51,6 +51,6 @@ class ViewController: UIViewController {
     }
 }
 
-private extension Selector {
+fileprivate extension Selector {
     static let btnTapped = #selector(ViewController.btnTapped(btn:))
 }

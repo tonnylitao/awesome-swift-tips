@@ -10,24 +10,11 @@ func curried(x: Int) -> (Int) -> Int {
     }
 }
 
-let add1 = curried(x: 1)
-add1(2)  //3
+let addOne = curried(x: 1)
+addOne(2)  //3
 
 //: Or a short one
 
-func shortCurried(x: Int) -> (Int) -> Int {
+func anotherCurried(x: Int) -> (Int) -> Int {
     return { x + $0 }
 }
-
-//: Currying is a good way to reduce your repeat code.
-
-func logIfTrue(_ predicate: @autoclosure () -> Bool) {
-    if predicate() {
-        print("True")
-    }
-}
-
-logIfTrue(2>1)
-
-
-print([[2]]+[1])

@@ -1,13 +1,14 @@
-# awesome swift tips
+# Swift tips
 Some tips about coding in swift efficiently and elegantly.
 [Download](https://github.com/TonnyTao/HowSwift/archive/master.zip) two playground files to have fun.
 
-[1. Funny Swift](#1-funny-swiftplayground)	
+* [Funny Swift](#1-funny-swiftplayground)
+* [The Dao of Protocol](#2-the-dao-of-protocolplayground)
 
-[2. The Dao of Protocol](#2-the-dao-of-protocolplayground)
+## Funny Swift.playground
+This playground file has some tips about how to write funny swift which saves your time and fingers.
 
-## 1. Funny Swift.playground
-This playground file has some funny tips about how to write funny swift which saves your time and fingers.
+![](screenshot/1.png)
 
 ### Extension for Selector:
 
@@ -30,7 +31,7 @@ extension Notification.Name {
 NotificationCenter.default.post(name: .changed, object: nil)
 ```
 
-### Eliminate nil check with flatMap
+### To eliminate nil check with flatMap
 
 ```swift
 if city != nil {
@@ -45,7 +46,7 @@ vs
 city.flatMap { para["city"] = $0 }
 ```
 
-### Enum for managing storyboards
+### Managing multiple storyboards
 
 ```swift
 user.storyboard
@@ -91,8 +92,8 @@ arr[[0, 2]] //print [1, 3]
 ```
 
 ---
-## 2. The Dao of Protocol.playground
-This playground file is about basic Protocol and Protocol Oriented Programming. OOP with it's patterns is addicted to the paradigm in lower-level of inheritance. However, POP, the game changer, open the doors to the upper-level programming.
+## The Dao of Protocol.playground
+This playground file is about basic Protocol and Protocol Oriented Programming. 
 
 ### Isolate builder code
 

@@ -3,7 +3,7 @@ import Dispatch
 import PlaygroundSupport
 
 
-//: The most common GCD patterns
+//: The most common GCD patterns: run IO operation or compute in background thread then update UI in main thread
 DispatchQueue.global().async {
     // Cocurrent thread
     dispatchPrecondition(condition: .notOnQueue(DispatchQueue.main))
@@ -59,7 +59,25 @@ DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3) {
 
 print("Hello ")
 
-//: Group
+//: Group, parallel
+
+let group1 = DispatchGroup()
+
+group1.enter()
+DispatchQueue.global().sync { //remote api fetch
+    group1.leave()
+}
+
+group1.enter()
+DispatchQueue.global().sync { //another remote api fetch
+    group1.leave()
+}
+
+group1.notify(queue: .main) {
+    print("parallel end")
+}
+
+//: Group with different queue
 
 let group = DispatchGroup()
 

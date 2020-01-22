@@ -7,7 +7,6 @@
         <page name='app_storyboard'/>
         <page name='associated_object'/>
         <page name='circle_retain_closure_property'/>
-        <page name='clip array'/>
         <page name='currying'/>
         <page name='enum_compare'/>
         <page name='extension'/>
@@ -19,8 +18,7 @@
         <page name='optional_pattern'/>
         <page name='private_set'/>
         <page name='protocol_optional'/>
-        <page name='protocol&amp;'/>
-        <page name='random'/>
+        <page name='protocols union'/>
         <page name='set_hash_equal'/>
         <page name='struct_euqal'/>
         <page name='subscript_array'/>

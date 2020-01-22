@@ -3,7 +3,7 @@
 import Foundation
 
 var city: String? = "Auckland"
-var para: [String: Any]! = [:]
+var para = [String: Any]()
 
 if city != nil {
     para["city"] = city

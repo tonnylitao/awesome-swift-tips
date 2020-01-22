@@ -2,33 +2,36 @@
 
 import UIKit
 
-enum AppStoryboard : String {
-    case main, login
-    
-    var instance: UIStoryboard {
-        return UIStoryboard(name: self.rawValue, bundle: nil)
+//please test this file in iOS project, rather than in playground
+
+extension UIStoryboard {
+    static let main = UIStoryboard(name: "Main", bundle: nil)
+    static let login = UIStoryboard(name: "Login", bundle: nil)
+}
+
+extension UIStoryboard {
+    func viewController<T: UIViewController>(_ className: T.Type, _ identifier: String? = nil) -> T? {
+        let iden = identifier ?? "\(className)"
+        return instantiateViewController(withIdentifier: iden) as? T
     }
+}
+
+class HomeViewController: UIViewController {
     
-    //please test this file in iOS project
-    func viewController<T: UIViewController>(_ className: T.Type) -> T? {
-        let identifier = "\((className))"
-        
-        let vc = instance.instantiateViewController(withIdentifier: identifier) //need iOS project
-        return vc as? T
-    }
+}
+
+let vc1 = UIStoryboard.main.viewController(HomeViewController.self) //HomeViewController?
+let vc2 = UIStoryboard.login.viewController(HomeViewController.self, "HomeViewController_Verion2") //HomeViewController?
+
+
+//best
+
+extension UIStoryboard {
     
-    //please test this file in iOS project
     func viewController(_ identifier: String) -> UIViewController {
-        let vc = instance.instantiateViewController(withIdentifier: identifier) //need iOS project
-        return vc
+        return instantiateViewController(withIdentifier: identifier)
     }
 }
 
-class TestVC: UIViewController {
-    
-}
-
-//please test this file in iOS project
-let vc = AppStoryboard.main.viewController(TestVC.self)
-let vc1 = AppStoryboard.main.viewController("TestVC")
-
+let vc5 = UIStoryboard.main.viewController("HomeViewController") as? HomeViewController
+let vc6 = UIStoryboard.main.viewController("HomeViewController_Version2") as? HomeViewController

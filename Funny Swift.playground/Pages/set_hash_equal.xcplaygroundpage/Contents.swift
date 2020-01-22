@@ -5,8 +5,9 @@ struct Friend: Hashable, Equatable {
     var name: String
     var email: String
     
-    var hashValue: Int {
-        return self.name.hash ^ self.email.hash
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(name)
+        hasher.combine(email)
     }
     
     static func == (lhs: Friend, rhs: Friend) -> Bool {

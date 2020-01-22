@@ -1,14 +1,16 @@
 import Foundation
 
-protocol SpeakCharacterAble {
+protocol CharacterSpeakable {
     func read(value: Character)
 }
 
-protocol SpeakStringAble {
+protocol StringSpeakable {
     func read(value: String)
 }
 
-struct People1: SpeakStringAble, SpeakCharacterAble {
+//: normal way to implement multiple protocols
+
+struct People1: CharacterSpeakable, StringSpeakable {
     func read(value: Character) {
         
     }
@@ -18,11 +20,11 @@ struct People1: SpeakStringAble, SpeakCharacterAble {
     }
 }
 
-//: Magic1, Let's use typealias combine these two protocols
+//: combine two protocols with &
 
-typealias SpeakAble = SpeakStringAble & SpeakCharacterAble
+typealias Speakable = CharacterSpeakable & StringSpeakable
 
-struct People2: SpeakAble {
+struct People2: Speakable {
     func read(value: Character) {
         
     }
@@ -31,4 +33,10 @@ struct People2: SpeakAble {
         
     }
 }
+
+
+
+
+
+
 

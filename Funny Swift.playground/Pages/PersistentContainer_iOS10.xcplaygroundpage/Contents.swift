@@ -49,7 +49,7 @@ extension CoreDataStack {
 
 func dashatize(_ number: Int) -> String {
     
-    return String(number).characters.reduce("") { (result, char) -> String in
+    return String(number).reduce("") { (result, char) -> String in
         
         if char == "-" { //negative
             return result
