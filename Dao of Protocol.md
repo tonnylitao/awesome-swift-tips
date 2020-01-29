@@ -14,6 +14,7 @@
 ---
 ## Isolate builder code
 It's difficult to read the crowded builder code below. Let's write clean code with the power of Protocol.
+
 ```swift
 let btn = UIButton()
 btn.frame = 
@@ -110,6 +111,7 @@ protocol KeyboardShowAndHideProtocol: class {
 ```
 #### 2. extend view controller
 move all repeat code into protocol extension
+
 ```swift
 extension KeyboardShowAndHideProtocol where Self: UIViewController {
 	
@@ -125,6 +127,7 @@ extension KeyboardShowAndHideProtocol where Self: UIViewController {
 
 #### 3. much better now
 The most benifit is code reuse in every controller
+
 ```swift
 final class ViewController: UIViewController {
     
@@ -149,6 +152,7 @@ extension ViewController: KeyboardShowAndHideProtocol {
 ```
 ---
 ## Default implementation for member method
+
 ```swift
 protocol Callable { }
 
@@ -173,6 +177,7 @@ struct Student: Callable {
 ---
 ## Default implementation for static method
 Active Record design pattern from ruby is not bad in api case.
+
 ```swift
 protocol RemoteFetchable {}
 
@@ -201,6 +206,7 @@ User.request(RemoteResouce("api.example.com", "/users", .get, ["gender": "female
 ---
 ## Extend for specific generic
 How to add extra methods for Int phone?
+
 ```swift
 protocol Callable {
     associatedtype PhoneNumberType
@@ -216,6 +222,7 @@ struct Student: Callable {
 }
 ```
 #### just extend protocol for generic
+
 ```swift
 extension Callable where Self.PhoneNumberType : SignedInteger {
     
@@ -225,5 +232,5 @@ extension Callable where Self.PhoneNumberType : SignedInteger {
 }
 ```
 
-[Download](https://github.com/TonnyTao/HowSwift/archive/master.zip) playground to play
+Download the playground file to have fun.
 

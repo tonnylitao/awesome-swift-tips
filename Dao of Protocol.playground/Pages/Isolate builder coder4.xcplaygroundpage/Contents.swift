@@ -44,7 +44,7 @@ class MyViewController : UIViewController {
         $0.layer.cornerRadius = $0.bounds.width*0.5
     }, {
         print("setup action")
-        $0.addTarget(UIViewController(), action: #selector(MyViewController.login(btn:)), for: .touchUpInside)
+        $0.addTarget(self, action: #selector(self.login), for: .touchUpInside)
     })
 
     @objc func login(btn: UIButton) {

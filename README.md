@@ -95,6 +95,8 @@ arr[[0, 2]] //print [1, 3]
 ## The Dao of Protocol.playground
 This playground file is about basic Protocol and Protocol Oriented Programming. 
 
+![](screenshot/2.png)
+
 ### Isolate builder code
 
 ```swift
@@ -149,5 +151,5 @@ extension Callable where Self.PhoneNumberType : SignedInteger {
 }
 ```
 
-[Read more](TheDaoOfProtocol/README.md)
+[Read more](/Dao of Protocol.md)
 

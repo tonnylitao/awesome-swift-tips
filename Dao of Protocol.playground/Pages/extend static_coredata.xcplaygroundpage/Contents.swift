@@ -2,6 +2,8 @@
 class Earth {}
 protocol StopAble {}
 
+// extension on class
+
 extension Earth {
     func stopQuake() {
         
@@ -10,72 +12,14 @@ extension Earth {
 
 // VS
 
+// extension on protocol
+
 extension StopAble where Self: Earth {
     func stopQuake() {
         
     }
 }
 
-
-////
-
-import Foundation
-import PlaygroundSupport
-
-//////////////////////////////////////////////
-
-class Boy {}
-//extension Boy {
-//    func dateWithLover() {
-//        print("💑")
-//    }
-//}
-
-//////////////////////////////////////////////
-
-class GayBoy: Boy {}
-//extension GayBoy {
-//    func dateWithLover() {
-//        print("💑")
-//    }
-//}
-
-//////////////////////////////////////////////
-
-protocol DateAble {
-    func dateWithLover()
-}
-
-extension Boy: DateAble {
-    func dateWithLover() {
-        print("💑", terminator: "")
-    }
-}
-
-//extension GayBoy: DateAble {
-//    func dateWithLover() {
-//        print("💑")
-//    }
-//}
-
-
-//////////////////////////////////////////////
-
-//extension Boy: DateAble {}
-//extension DateAble where Self: Boy {
-//    func dateWithLover() {
-//        print("💑")
-//    }
-//}
-//
-//extension DateAble where Self: GayBoy {
-//    func dateWithLover() {
-//        print("👨‍❤️‍👨")
-//    }
-//}
-
-Boy().dateWithLover() //💑
-GayBoy().dateWithLover() //👨‍❤️‍👨
 
 //////////////////////////////////////////////
 
@@ -84,13 +28,13 @@ import CoreData
 class User : NSManagedObject {}
 class Topic : NSManagedObject {}
 
-protocol ApiFetch {}
-protocol CoreDataFetch {}
-typealias FetchAble = CoreDataFetch&ApiFetch
+protocol RemoteApiFetch {}
+protocol LocalCoreDataFetch {}
+typealias FetchAble = LocalCoreDataFetch & RemoteApiFetch
 
 extension NSManagedObject : FetchAble {} //it's important
 
-extension CoreDataFetch where Self: NSManagedObject { // ‘where Self: NSManagedObject’ should not be removed
+extension LocalCoreDataFetch where Self: NSManagedObject { // ‘where Self: NSManagedObject’ should not be removed
     
     static func localFetch(with id: Int, completion: @escaping ((Self?)->Void) ) {
         // find in coredata
@@ -105,7 +49,7 @@ User.localFetch(with: 2) { user in }
 Topic.localFetch(with: 2) { user in }
 
 
-extension ApiFetch {
+extension RemoteApiFetch {
     
     typealias FetchCompletion = (NSData?, Error?) -> Void
 
@@ -122,7 +66,7 @@ extension ApiFetch {
     }
 }
 
-extension ApiFetch where Self: User {
+extension RemoteApiFetch where Self: User {
     
     static func remoteMe(completion: @escaping ((Self?)->Void) ) {
         
@@ -140,4 +84,3 @@ Topic.remoteFetch(with: 1) { _, _ in }
 User.remoteMe { user in }
 
 
-PlaygroundPage.current.needsIndefiniteExecution = true;

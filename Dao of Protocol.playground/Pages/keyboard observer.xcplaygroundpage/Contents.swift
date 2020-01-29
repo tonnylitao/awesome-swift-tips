@@ -5,8 +5,6 @@ import Foundation
 
 // KeyboardAvoidable
 // original by Roy McKenzie
-//https://gist.github.com/yavinfour/35684bf3ae6df02f60a41490a9843008
-
 
 protocol KeyboardShowAndHideProtocol: class {
     typealias HeightDuration = (height: CGFloat, duration: Double)
@@ -20,12 +18,13 @@ protocol KeyboardShowAndHideProtocol: class {
     var constraintsToAdjust: [NSLayoutConstraint]? { get }
 }
 
+
 var KeyboardShowObserverKey: UInt8 = 0
 var KeyboardHideObserverKey: UInt8 = 1
 
+
 extension KeyboardShowAndHideProtocol where Self: UIViewController {
 
-    
     private var keyboardShowObserver: AnyObject? {
         get {
             return objc_getAssociatedObject(self, &KeyboardShowObserverKey) as AnyObject
@@ -55,8 +54,7 @@ extension KeyboardShowAndHideProtocol where Self: UIViewController {
         //keyboard show observer
         keyboardShowObserver = center.addObserver(forName: UIViewController.keyboardWillShowNotification,
                                                   object: nil,
-                                                  queue: nil)
-        { [weak self] notification in
+                                                  queue: nil) { [weak self] notification in
             
             guard let strongSelf = self,
                 let heightDuration = strongSelf.getHeightDurationFrom(notification: notification) else { return }
@@ -78,8 +76,7 @@ extension KeyboardShowAndHideProtocol where Self: UIViewController {
         //keyboard hide observer
         keyboardHideObserver = center.addObserver(forName: UIViewController.keyboardWillHideNotification,
                                                   object: nil,
-                                                  queue: nil)
-        { [weak self] notification in
+                                                  queue: nil) { [weak self] notification in
             
             guard let strongSelf = self else { return }
             
@@ -109,27 +106,28 @@ extension KeyboardShowAndHideProtocol where Self: UIViewController {
     func removeKeyboardObservers() {
         if let observer = keyboardShowObserver {
             NotificationCenter.default.removeObserver(observer)
+            keyboardShowObserver = nil
         }
+        
         if let observer = keyboardHideObserver {
             NotificationCenter.default.removeObserver(observer)
+            keyboardHideObserver = nil
         }
-        keyboardShowObserver = nil
-        keyboardHideObserver = nil
     }
 }
 
 // Example Implementation
 class NiceViewController: UIViewController {
     
-    weak var scrollViewBottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var scrollViewBottomConstraint: NSLayoutConstraint!
     
-    func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         self.addKeyboardObservers()
     }
     
-    func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
         self.removeKeyboardObservers()
@@ -144,7 +142,7 @@ extension NiceViewController: KeyboardShowAndHideProtocol {
 }
 
 //Another Example Implementation
-final class AnotherViewController: UIViewController, KeyboardShowAndHideProtocol {
+class AnotherViewController: UIViewController, KeyboardShowAndHideProtocol {
     
     @IBOutlet weak var scrollViewBottomConstraint: NSLayoutConstraint!
     
