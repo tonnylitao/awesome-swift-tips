@@ -10,7 +10,7 @@ This playground file has some tips about how to write funny swift which saves yo
 
 ![](screenshot/1.png)
 
-### Extension for Selector:
+### Extension of Selector:
 
 ```swift
 private extension Selector {
@@ -21,7 +21,7 @@ btn.addTarget(self, action: .btnTapped, for: .touchUpInside)
 ```
 
 
-### Extension for Notification.Name
+### Extension of Notification.Name
 
 ```swift
 extension Notification.Name {
@@ -34,8 +34,8 @@ NotificationCenter.default.post(name: .changed, object: nil)
 ### To eliminate nil check with flatMap
 
 ```swift
-if city != nil {
-    para["city"] = city	
+if let v = city {
+    para["city"] = v	
 }
 
 ```
@@ -58,7 +58,7 @@ let userVC = AppStoryboard.user.viewController(UserViewController.self)
 let topicVC = AppStoryboard.topic.viewController("TopicViewController")
 ```
 
-### Extension reduce repeat code
+### Reduce repeat code with Extension
 
 ```swift
 let p = CGPoint(x:10, y:10.1)
@@ -69,19 +69,13 @@ let p = CGPoint(10, 10.1)
 let r = CGRect(10, 10, 100, 100)
 ```
 
-### Extension to code in chain style
+### write code in chain style with Extension
 
 ```swift
 let view = UIView()
     .backgroundColor(.white)
     .tag(1)
     ...
-```
-
-### Use & to combine protocols
-
-```swift
-typealias SpeakAble = SpeakStringAble & SpeakCharacterAble
 ```
 
 ### Array subscripts
@@ -93,7 +87,7 @@ arr[[0, 2]] //print [1, 3]
 
 ---
 ## The Dao of Protocol.playground
-This playground file is about basic Protocol and Protocol Oriented Programming. 
+This playground file is all about Protocol and Protocol Oriented Programming. 
 
 ![](screenshot/2.png)
 
