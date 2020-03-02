@@ -21,7 +21,7 @@
         <page name='protocols union'/>
         <page name='set_hash_equal'/>
         <page name='struct_euqal'/>
-        <page name='subscript_array'/>
+        <page name='subscript_dic'/>
         <page name='synchronized'/>
         <page name='PersistentContainer_iOS10'/>
         <page name='elimnate if'/>

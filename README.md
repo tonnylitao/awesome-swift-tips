@@ -35,7 +35,7 @@ NotificationCenter.default.post(name: .changed, object: nil)
 
 ```swift
 if let v = city {
-    para["city"] = v	
+    para["city"] = v
 }
 
 ```
@@ -78,16 +78,9 @@ let view = UIView()
     ...
 ```
 
-### Array subscripts
-
-```swift
-var arr = [1, 2, 3]
-arr[[0, 2]] //print [1, 3]
-```
-
 ---
 ## The Dao of Protocol.playground
-This playground file is all about Protocol and Protocol Oriented Programming. 
+This playground file is all about Protocol and Protocol Oriented Programming.
 
 ![](screenshot/2.png)
 
@@ -106,16 +99,16 @@ let btn = UIButton() {
 ```swift
 final class ViewController: UIViewController {
     ...
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+
         addKeyboardObservers()
     }
-    
+
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        
+
         removeKeyboardObservers()
     }
 }
@@ -128,10 +121,10 @@ extension User: RemoteFetchable { }
 
 User.request(RemoteResouce("api.example.com", "/users", .get),
     success: { data in
-        
+
     },
     failure: { err in
-        
+
     })
 ```
 
@@ -146,4 +139,3 @@ extension Callable where Self.PhoneNumberType : SignedInteger {
 ```
 
 [Read more](/Dao%20of%20Protocol.md)
-
