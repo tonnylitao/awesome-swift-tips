@@ -25,5 +25,6 @@
         <page name='synchronized'/>
         <page name='PersistentContainer_iOS10'/>
         <page name='elimnate if'/>
+        <page name='generic and decodable in api'/>
     </pages>
 </playground>
