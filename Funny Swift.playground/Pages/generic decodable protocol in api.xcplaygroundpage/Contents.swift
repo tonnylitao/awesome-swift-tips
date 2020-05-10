@@ -41,7 +41,7 @@ extension API where Self: Decodable {
     }
 }
 
-struct Animal: Decodable, API, CustomStringConvertible {
+struct Animal: Decodable, CustomStringConvertible {
     let name: String
     
     var description: String {
@@ -49,6 +49,7 @@ struct Animal: Decodable, API, CustomStringConvertible {
     }
 }
 
+extension Animal: API {}
 extension Array: API where Element: Decodable {}
 
 let listUrl = URL(string: "http://www.json-generator.com/api/json/get/cgtNBfTPiq")!
