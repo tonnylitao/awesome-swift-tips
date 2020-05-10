@@ -57,7 +57,6 @@ API.get([Animal].self, from: url) { result in
         print(error.localizedDescription)
     case .success(let animals):
         print(animals)
-        print()
     }
 }
 
@@ -68,7 +67,6 @@ API.get(Animal.self, from: animalUrl) { result in
         print(error.localizedDescription)
     case .success(let animal):
         print(animal)
-        print()
     }
 }
 
