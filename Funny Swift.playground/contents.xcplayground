@@ -26,5 +26,6 @@
         <page name='PersistentContainer_iOS10'/>
         <page name='elimnate if'/>
         <page name='generic and decodable in api'/>
+        <page name='generic decodable protocol in api'/>
     </pages>
 </playground>

@@ -7,19 +7,13 @@ enum DataError: Error {
     case decoding
 }
 
-struct Animal: Decodable, CustomStringConvertible {
-    let name: String
-    
-    var description: String {
-        return "Animal: \(name)"
-    }
+protocol API {
+    typealias Completion<T> = (Result<T, DataError>) -> Void
 }
 
-struct API {
-    typealias Completion<T> = (Result<T, DataError>) -> Void
+extension API where Self: Decodable {
     
-    static func get<T: Decodable>(_ type: T.Type, from url: URL, completion: @escaping Completion<T>) {
-        
+    static func get(from url: URL, completion: @escaping Completion<Self>) {
         URLSession.shared.dataTask(with: url) { (data, response, error) in
             if let error = error {
                 completion(.failure(.internet(error)))
@@ -38,20 +32,27 @@ struct API {
             }
             
             do {
-                let decodedData = try JSONDecoder().decode(T.self, from: data)
+                let decodedData = try JSONDecoder().decode(Self.self, from: data)
                 completion(.success(decodedData))
             }catch {
                 completion(.failure(.decoding))
             }
         }.resume()
     }
-
 }
 
-let url = URL(string: "http://www.json-generator.com/api/json/get/cgtNBfTPiq")!
-
-API.get([Animal].self, from: url) { result in
+struct Animal: Decodable, API, CustomStringConvertible {
+    let name: String
     
+    var description: String {
+        return "Animal: \(name)"
+    }
+}
+
+extension Array: API where Element: Decodable {}
+
+let listUrl = URL(string: "http://www.json-generator.com/api/json/get/cgtNBfTPiq")!
+[Animal].get(from: listUrl) { result in
     switch result {
     case .failure(let error):
         print(error.localizedDescription)
@@ -62,7 +63,7 @@ API.get([Animal].self, from: url) { result in
 }
 
 let animalUrl = URL(string: "http://www.json-generator.com/api/json/get/clgXOarile")!
-API.get(Animal.self, from: animalUrl) { result in
+Animal.get(from: animalUrl) { result in
     switch result {
     case .failure(let error):
         print(error.localizedDescription)
