@@ -8,6 +8,8 @@ import CoreData
 final class CoreDataStack {
     
     static let shared = CoreDataStack()
+    private init() {}
+    
     var errorHandler: (Error) -> Void = {err in
         debugPrint("CoreData error \(err)")
     }
@@ -26,7 +28,9 @@ final class CoreDataStack {
     }()
     
     lazy var viewContext: NSManagedObjectContext = {
-        return self.container.viewContext
+        let context = self.container.viewContext
+        context.automaticallyMergesChangesFromParent = true
+        return context
     }()
     
     lazy var backgroundContext: NSManagedObjectContext = {

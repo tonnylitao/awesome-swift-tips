@@ -27,5 +27,7 @@
         <page name='elimnate if'/>
         <page name='generic and decodable in api'/>
         <page name='generic decodable protocol in api'/>
+        <page name='optional ifsome'/>
+        <page name='observed dictionary'/>
     </pages>
 </playground>

@@ -5,7 +5,6 @@ import CoreData
 import PlaygroundSupport
 
 protocol Entity {}
-extension NSManagedObject: Entity {}
 extension Entity where Self: NSManagedObject {
     //CRUD methods
 }
@@ -13,6 +12,8 @@ extension Entity where Self: NSManagedObject {
 class User: NSManagedObject {
     
 }
+
+extension User: Entity {}
 
 
 PlaygroundPage.current.needsIndefiniteExecution = true

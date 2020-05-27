@@ -48,7 +48,7 @@ struct API {
 
 }
 
-let url = URL(string: "http://www.json-generator.com/api/json/get/cgtNBfTPiq")!
+let url = URL(string: "https://www.json-generator.com/api/json/get/cgtNBfTPiq")!
 
 API.get([Animal].self, from: url) { result in
     
@@ -60,7 +60,7 @@ API.get([Animal].self, from: url) { result in
     }
 }
 
-let animalUrl = URL(string: "http://www.json-generator.com/api/json/get/clgXOarile")!
+let animalUrl = URL(string: "https://www.json-generator.com/api/json/get/clgXOarile")!
 API.get(Animal.self, from: animalUrl) { result in
     switch result {
     case .failure(let error):

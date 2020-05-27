@@ -9,9 +9,9 @@ enum DataError: Error {
     case decoding
 }
 
-protocol API {
-    typealias ResultCompletion<T> = (Result<T, DataError>) -> Void
-}
+typealias ResultCompletion<T> = (Result<T, DataError>) -> Void
+
+protocol API {}
 
 extension API where Self: Decodable {
     
@@ -58,7 +58,7 @@ extension Array: API where Element: Decodable {}
 
 // fetch data from API
 
-let listUrl = URL(string: "http://www.json-generator.com/api/json/get/cgtNBfTPiq")!
+let listUrl = URL(string: "https://www.json-generator.com/api/json/get/cgtNBfTPiq")!
 [Animal].get(from: listUrl) { result in
     switch result {
     case .failure(let error):
@@ -68,7 +68,7 @@ let listUrl = URL(string: "http://www.json-generator.com/api/json/get/cgtNBfTPiq
     }
 }
 
-let animalUrl = URL(string: "http://www.json-generator.com/api/json/get/clgXOarile")!
+let animalUrl = URL(string: "https://www.json-generator.com/api/json/get/clgXOarile")!
 Animal.get(from: animalUrl) { result in
     switch result {
     case .failure(let error):
