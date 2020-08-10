@@ -6,7 +6,7 @@ struct ObservedDictionary<Key> where Key: Hashable {
     lazy private var items: [Key: Any] = [:]
     
     subscript(key: Key) -> Any? {
-        mutating get{
+        mutating get {
             return items[key]
         }
         set(newValue) {
