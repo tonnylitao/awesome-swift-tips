@@ -29,5 +29,7 @@
         <page name='generic decodable protocol in api'/>
         <page name='optional ifsome'/>
         <page name='observed dictionary'/>
+        <page name='find type back if erased'/>
+        <page name='AnyWritableKeyPath'/>
     </pages>
 </playground>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<playground version='6.0' target-platform='ios' buildActiveScheme='true'>
+    <pages>
+        <page name='1 weak view'/>
+        <page name='2 delegate'/>
+        <page name='3 didSet + Closure'/>
+        <page name='4 closure box'/>
+        <page name='5 kvo'/>
+        <page name='6 keypath observation'/>
+        <page name='7 rxswift'/>
+        <page name='8 combine'/>
+    </pages>
+</playground>
