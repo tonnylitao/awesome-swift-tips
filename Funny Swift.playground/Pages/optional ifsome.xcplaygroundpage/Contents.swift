@@ -7,14 +7,14 @@ extension Optional {
     /*
      1
      if let a = optional {
-     }else {
+     
      }
      
      2
      switch optional {
-     case .some(let a) {
-     }
-     default: break
+         case .some(let a) {
+         }
+         default: break
      }
      
      3

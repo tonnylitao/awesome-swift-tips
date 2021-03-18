@@ -49,3 +49,11 @@ defaultWithAutoClosure(optional: bool, defaultValue: 2>1)
 bool ?? (2>1)
 
 //: So, if you want use short-circuit evaluation or reduce calculating, please use @autoclosure.
+
+
+func print(_ item: @autoclosure () -> Any) {
+    #if DEBUG
+    Swift.print(item(), terminator: "\n")
+    #endif
+}
+

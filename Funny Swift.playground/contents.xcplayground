@@ -19,7 +19,7 @@
         <page name='private_set'/>
         <page name='protocol_optional'/>
         <page name='protocols union'/>
-        <page name='set_hash_equal'/>
+        <page name='set_hash'/>
         <page name='struct_euqal'/>
         <page name='subscript_dic'/>
         <page name='synchronized'/>
@@ -31,5 +31,8 @@
         <page name='observed dictionary'/>
         <page name='find type back if erased'/>
         <page name='AnyWritableKeyPath'/>
+        <page name='test with emoji'/>
+        <page name='IndexPath tuple'/>
+        <page name='R.string.name'/>
     </pages>
 </playground>

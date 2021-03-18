@@ -5,7 +5,7 @@
  */
 
 func curried(x: Int) -> (Int) -> Int {
-    return { y -> Int in
+    return { y in
         return x + y
     }
 }

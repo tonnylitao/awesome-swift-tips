@@ -7,10 +7,10 @@ extension MyClass {
     
     var title: String? {
         get {
-            return objc_getAssociatedObject(self, &MyClass.titleKey) as? String
+            return objc_getAssociatedObject(self, &Self.titleKey) as? String
         }
         set {
-            objc_setAssociatedObject(self, &MyClass.titleKey, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            objc_setAssociatedObject(self, &Self.titleKey, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }
     }
 }
