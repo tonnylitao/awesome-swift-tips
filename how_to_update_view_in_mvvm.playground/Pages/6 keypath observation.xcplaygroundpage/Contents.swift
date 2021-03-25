@@ -9,10 +9,10 @@ class ViewController: UITableViewController {
     var observer: NSKeyValueObservation?
     
     func setup() {
-        observer = observe(\.viewModel.state, options: [.new]) { [weak self] (_, change) in
+        observer = observe(\.viewModel.state, options: [.new]) { [unowned self] (_, change) in
             print("notified", change.newValue)
             
-            self?.tableView.reloadData()
+            self.tableView.reloadData()
         }
         
         viewModel.fetch()

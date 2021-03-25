@@ -11,10 +11,10 @@ class ViewController: UITableViewController {
     func setup() {
         viewModel
             .state
-            .subscribe({ [weak self] newValue in
+            .subscribe({ [unowned self] newValue in
                 print("notified", newValue)
                 
-                self?.tableView.reloadData()
+                self.tableView.reloadData()
             })
             .disposed(by: disposeBag)
         

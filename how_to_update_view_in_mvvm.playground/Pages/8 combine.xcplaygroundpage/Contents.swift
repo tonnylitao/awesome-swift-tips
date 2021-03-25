@@ -11,14 +11,18 @@ class ViewController: UITableViewController {
     func setup() {
         viewModel
             .$state
-            .sink { [weak self] data in
+            .sink { [unowned self] data in
                 print("notified", data)
                 
-                self?.tableView.reloadData()
+                self.tableView.reloadData()
             }
             .store(in: &cancellables)
         
         viewModel.fetch()
+    }
+    
+    deinit {
+        print("vc deinit")
     }
 }
 
@@ -31,6 +35,9 @@ class ViewModel<R: Resource> {
         R.fetch { [weak self] data in
             self?.state = data
         }
+    }
+    deinit {
+        print("vm deinit")
     }
 }
 

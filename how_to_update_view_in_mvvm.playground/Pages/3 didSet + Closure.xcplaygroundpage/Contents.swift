@@ -7,10 +7,10 @@ class ViewController: UITableViewController {
     let viewModel = ViewModel<[User]>()
     
     func setup() {
-        viewModel.bind = { [weak self] data in
+        viewModel.bind = { [unowned self] data in
             print("notified", data)
             
-            self?.tableView.reloadData()
+            self.tableView.reloadData()
         }
         
         viewModel.fetch()
